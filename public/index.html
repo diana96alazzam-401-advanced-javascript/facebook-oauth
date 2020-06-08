@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Auth Test</title>
+</head>
+
+<body>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=279968756489985&autoLogAppEvents=1"></script>
+
+  <main>
+
+    <a id="loginbutton" onclick ="javascript:loginWithFacebook()" href="">Login</a>
+
+    <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+
+  </main>
+
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '279968756489985',
+        cookie: true,
+        xfbml: true,
+        version: 'v1.1'
+      });
+
+      FB.AppEvents.logPageView();
+      // fbSDKLoaded()
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+  </script>
+
+  <script src="/facebookscript.js"></script>
+
+
+</body>
+
+
+</html>
