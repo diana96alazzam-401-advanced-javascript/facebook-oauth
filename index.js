@@ -13,4 +13,6 @@ app.post('/login-with-facebook', (req, res)=> {
     const {accessToken, userID} = req.body;
 })
 // Start the web server
-require('./src/app.js').start(process.env.PORT);
+// require('./src/app.js').start(process.env.PORT);
+
+app.listen(process.env.PORT, ()=> console.log(`up and running on port ${process.env.PORT}`));

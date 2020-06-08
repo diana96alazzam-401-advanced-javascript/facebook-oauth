@@ -1,13 +1,10 @@
-// const express = require('express');
+'use strict';
 
-// const app = express();
-
-document.getElementById('loginbutton').addEventListener('click', loginWithFacebook, false )
+document.getElementById('loginbtn').addEventListener('click', loginWithFacebook, false )
 
 function loginWithFacebook(){
     FB.login(response => {
         const {authRespose:{accessToken, userID}} = response;
-
         fetch('/login-with-facebook', {
             method: 'POST',
             headers: {
@@ -17,11 +14,9 @@ function loginWithFacebook(){
         }).then(res => {
             console.log(res)
         })
-
         FB.api('/me', function(response) {
             console.log(JSON.stringify(response));
         })
-
     }, {scope: 'public_profile,email'})
     return false
 
