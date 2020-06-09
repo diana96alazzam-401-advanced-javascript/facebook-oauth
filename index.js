@@ -14,10 +14,11 @@ app.use(cors());
 app.use('/', express.static('./public'));
 app.use(bodyParser.json());
 app.post('/login-with-facebook', async (req, res)=> {
-    console.log('hi');
     const {accessToken, userID} = req.body;
-
-    const response = await fetch(`https://graph.facebook.com/v3.1/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`);
+    
+    console.log('hi');
+    
+    const response = await fetch(`https://graph.facebook.com/v7.7/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`);
     const json = await response.json()
     if(json.id === userID){
         //valid user
