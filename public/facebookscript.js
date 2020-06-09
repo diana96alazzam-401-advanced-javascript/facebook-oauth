@@ -4,11 +4,8 @@ document.getElementById('loginbtn').addEventListener('click', loginWithFacebook,
 
 function loginWithFacebook(){
     FB.login(response => {
-        const accessToken = authRespose.response.accessToken;
-        const userID = authRespose.response.userID
-
-        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiii', accessToken, userID);
-        // const {authRespose:{accessToken, userID}} = response;
+        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiii', response);
+        const {authResponse:{accessToken, userID}} = response;
         fetch('/login-with-facebook', {
             method: 'POST',
             headers: {
